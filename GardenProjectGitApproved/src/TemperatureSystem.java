@@ -1,11 +1,18 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class TemperatureSystem {
 
     static Integer[][] testArray = new Integer[20][20];
-
     static Integer[] quadrantTemps = new Integer[4];
 
+    //------------Instance Variables---------------//
+    int quadrant;
+    ArrayList<Integer> plants_in_prox = new ArrayList<>();
+
+    TemperatureSystem(int quadrant){
+        this.quadrant = quadrant;
+    }
 
     public static void generateRandomTemp(){
 
@@ -18,10 +25,7 @@ public class TemperatureSystem {
 
     }
 
-    public static void setQuadrantTemps(){
-
-
-    }
+    public static void setQuadrantTemps(){}
 
     public void calculateOptimalTemperature(){}
 
@@ -32,6 +36,9 @@ public class TemperatureSystem {
     public void raiseTemp(){}
 
     public static void main(String[] args) {
+
+        TemperatureSystem test = new TemperatureSystem(1);
+
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {

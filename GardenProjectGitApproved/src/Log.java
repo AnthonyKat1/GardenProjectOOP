@@ -75,7 +75,6 @@ public class Log {
 
     }
 
-
     public static void main(String[] args){
 
         String[] columns =  {"plantInstance", "water_health","need_water", "time_stamp"};
@@ -85,7 +84,7 @@ public class Log {
         String[] row3 =  {"1", "3","1",  "03"};
         String[] row4 =  {"1", "4","0", "04"};
         String[] row5 =  {"1", "3","1", "05"};
-        String[] row6 =  {"1", "5","0", "06"};
+        String[] row6 =  {"1", "5","0", "06"}; // Testing githu
 
 
         createLog("plantLog.csv",columns);
