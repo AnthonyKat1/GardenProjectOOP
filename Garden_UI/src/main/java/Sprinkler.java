@@ -66,7 +66,7 @@ public class Sprinkler {
 
 
         System.out.println("Medium test");
-        Sprinkler mediumTest = new MediumSprinkler(2, 3);
+        Sprinkler mediumTest = new LargeSprinkler(2, 3);
         mediumTest.addSprinklerRadiusToArray();
 
 
@@ -96,8 +96,8 @@ class SmallSprinkler extends Sprinkler {
     }
 }
 
-class MediumSprinkler extends Sprinkler {
-    MediumSprinkler(int x, int y) {
+class LargeSprinkler extends Sprinkler {
+    LargeSprinkler(int x, int y) {
         super(x, y);
         this.radius = 2;
         buildRadiusArray(x, y);
