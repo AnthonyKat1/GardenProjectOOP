@@ -31,7 +31,7 @@ public class Log {
         try (FileWriter pw = new FileWriter(csvOutputFile)) {
             //pw.println(convertToCSV(columns));
 
-            pw.append("column_values->"+convertToCSV(columns));
+            pw.append("column_values->   "+convertToCSV(columns));
             pw.append("\n");
             pw.close();
         } catch (IOException e) {
@@ -77,8 +77,11 @@ public class Log {
 
     public static void main(String[] args){
 
-        String[] columns =  {"plantInstance", "water_health","need_water", "time_stamp"};
+        String[] PlantColumns =  {"plantInstance","time_stamp", "water_health","left_health", "tempHealth","days_to_harvest","Comment"};
+        createLog("plantLog.csv",PlantColumns);
 
+    /* Example on how to use
+        createLog("plantLog.csv",columns);
         String[] row =  {"1", "6", "0","01"};
         String[] row2 =  {"1", "5", "0","02"};
         String[] row3 =  {"1", "3","1",  "03"};
@@ -86,20 +89,14 @@ public class Log {
         String[] row5 =  {"1", "3","1", "05"};
         String[] row6 =  {"1", "5","0", "06"}; // Testing githu
 
-
-        createLog("plantLog.csv",columns);
-
-
         addToLog("plantLog.csv",row);
         addToLog("plantLog.csv",row2);
         addToLog("plantLog.csv",row3);
         addToLog("plantLog.csv",row4);
         addToLog("plantLog.csv",row5);
         addToLog("plantLog.csv",row6);
+     */
 
-        String[] testrow =  {"please work", "or that would suck"};
-
-        addToLog("hopingthisworks.csv", testrow);
 
 
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Sprinkler {
-    static Integer[][] testArray = new Integer[20][20];
+    static Integer[][] testArray = new Integer[10][10];
 
     ArrayList<String> plants_in_promixity = new ArrayList<>();
     int radius;
@@ -53,26 +53,21 @@ public class Sprinkler {
     public static void main(String[] args) {
 
         System.out.println("Small test");
-        Sprinkler smallTest = new SmallSprinkler(9,5);
+        Sprinkler smallTest = new SmallSprinkler(8,5);
         smallTest.addSprinklerRadiusToArray();
         System.out.println(smallTest.position_array[0]+" "+smallTest.position_array[1]);
 
-        /*
+
         System.out.println("Medium test");
         Sprinkler mediumTest = new MediumSprinkler(2,3);
         mediumTest.addSprinklerRadiusToArray();
-
-        System.out.println("Large test");
-        Sprinkler largeTest = new LargeSprinkler(15,15);
-        largeTest.addSprinklerRadiusToArray(); */
-
 
 
 
 
         //print board
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 if (testArray[i][j] == null) {
                     System.out.print("= ");
                 } else {
@@ -106,13 +101,13 @@ class MediumSprinkler extends Sprinkler{
     }
 }
 
-
+/*   //----------Dont need a large sprinker, board is too small
 class LargeSprinkler extends Sprinkler{
     LargeSprinkler(int x, int y){
         super(x,y);
         this.radius = 3;
         buildRadiusArray(x,y);
 
-    }
-}
+    } */
+
 

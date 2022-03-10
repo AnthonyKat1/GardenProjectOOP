@@ -86,8 +86,8 @@ public class Plant {
     return tempRange[0] <= temp && temp <= tempRange[1];
   }
 
-  public void oneDayPass() {
-    waterHealth--;
+  public void oneDayPass() { //--------------Maybe instead of just implemplenting this at an instance level it could
+    waterHealth--;        //--------------loop through all of the plants in a static form
     dayToHarvest--;
   }
 
