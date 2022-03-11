@@ -1,6 +1,7 @@
 public class dayThread extends Thread{
         static int thread_day = 0;
         public void run() {
+
             while (thread_day<365) {
                 //Start of Day
                 TemperatureSystem.generateRandomTemp();
@@ -28,13 +29,21 @@ public class dayThread extends Thread{
 
             UserInterface.growBush(2, 1, "blue bush");
 
+            UserInterface.growBush(5, 1, "blue bush");
+            UserInterface.growBush(5, 5, "blue bush");
+            UserInterface.growBush(1, 5, "blue bush");
+
+
+            TemperatureSystem Quad1 = new TemperatureSystem(1);
+            TemperatureSystem Quad2 = new TemperatureSystem(2);
+
+
             dayThread dayThread = new dayThread();
 
             tempThread tempSystem =new tempThread();
 
             tempThread quad2 =new tempThread();
 
-            TemperatureSystem.generateRandomTemp();
 
             dayThread.start();
 
@@ -45,21 +54,17 @@ public class dayThread extends Thread{
     }
     class tempThread extends Thread {
         public void run() {
-            TemperatureSystem.generateRandomTemp();
-
-
-            TemperatureSystem Quad1 = new TemperatureSystem(1);
-            System.out.println("Optimal Temp for quad " + Quad1.quadrant + " is " + Quad1.quadOptimalTemp);
-
-            TemperatureSystem Quad2 = new TemperatureSystem(2);
-            System.out.println("Optimal Temp for quad " + Quad2.quadrant + " is " + Quad2.quadOptimalTemp);
 
             while (dayThread.thread_day < 365) {
                 for (TemperatureSystem S : TemperatureSystem.ActiveSystems) {
-                    S.changeTemp(); // need to figrue out timing within the day
+                    S.changeTemp();
 
                 }
-                // need to add time delay
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
 
             }
