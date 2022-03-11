@@ -59,6 +59,7 @@ public class dayThread extends Thread{
                 for (TemperatureSystem S : TemperatureSystem.ActiveSystems) {
                     S.changeTemp();
 
+
                 }
                 try {
                     Thread.sleep(1000);
