@@ -1,5 +1,3 @@
-package plant;
-
 public class Plant {
 
 // 3 childrent: Flower, Tree, and Bush
