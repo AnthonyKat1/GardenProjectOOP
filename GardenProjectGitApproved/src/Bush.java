@@ -1,6 +1,4 @@
-package plant;
-
-public class Bush extends Plant {
+ublic class Bush extends Plant {
 
   public Bush(int x, int y, String name) {
     // 4 water, 15 heath, 15 temp health, 60-80 temp range, 30 days until
