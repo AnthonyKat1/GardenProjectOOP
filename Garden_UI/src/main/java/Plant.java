@@ -1,6 +1,7 @@
 public class Plant {
     // 3 childrent: Flower, Tree, and Bush
     // Grid: 2D Array of Plant
+    int maxWaterHealth;
     private int waterHealth;
     private int leafHealth;
     private int tempHealth;
@@ -22,6 +23,7 @@ public class Plant {
         name = n;
     }
 
+    public boolean needsWater(){ if(maxWaterHealth/waterHealth > .5){return true;}else{return false;}};
     public int getWaterHealth() {
         return waterHealth;
     }
@@ -102,6 +104,8 @@ public class Plant {
     public void tooCold() {
         tempHealth--;
     }
+
+    public void water(){}
 
     public String toString() {
         return name + ", waterHealth: " + waterHealth + ", leafHealth: "

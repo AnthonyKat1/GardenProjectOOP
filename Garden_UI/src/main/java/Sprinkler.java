@@ -12,13 +12,18 @@ public class Sprinkler {
     Sprinkler(int x, int y) {
         position_array[0] = x;
         position_array[1] = y;
+        this.radius = 1;
+        buildRadiusArray(x, y);
     }
 
     public void checkToWaterPlants() {
+        for (Plant P: plants_in_promixity) {
+           if (P.needsWater()){
+               P.water();
+           }
+        }
     }
 
-    public void waterPlant() {
-    }
 
     public void buildRadiusArray(int locX, int locY) {
         //https://stackoverflow.com/questions/8275795/algorithm-for-operating-on-2d-array-with-radius/8275819
@@ -51,36 +56,36 @@ public class Sprinkler {
 
     public void checkForPlantsInProximity(Plant[][] Plantgrid) {
 
-       for (int i = 0; i < Plantgrid.length; i++) {
-            System.out.println(Arrays.toString(Plantgrid[i]));
-        }
-
             // Iterate over plant array
         for (Integer[] C: radius_array) {
             if (Plantgrid[C[0]][C[1]] != null) {
                 plants_in_promixity.add(Plantgrid[C[0]][C[1]]);
-
+                System.out.println(Plantgrid[C[0]][C[1]].getName());
             }
         }
     }
 
-    public void checkPlants() {
-    }
 
-    public void waterPlants() {
-    }
 
     public static void main(String[] args) {
 
+        ///----------TESTING ---------///
+
+
+        UserInterface.growFlower(0, 1, "blue flower");
+        UserInterface.growFlower(2, 3, "red flower");   // CAN PLANT THINGS ON TOP OF EACH OTHER, NEED TO BE CAREFUL
+        UserInterface.growFlower(1, 2, "white flower");
+        for (int i = 0; i < UserInterface.Plantgrid.length; i++) {
+            System.out.println(Arrays.toString(UserInterface.Plantgrid[i]));
+        }
+
         System.out.println("Small test");
-        Sprinkler smallTest = new SmallSprinkler(1, 1);
+        Sprinkler smallTest = new Sprinkler(1, 1);
         smallTest.addSprinklerRadiusToArray();
         System.out.println(smallTest.position_array[0] + " " + smallTest.position_array[1]);
+        smallTest.checkForPlantsInProximity(UserInterface.Plantgrid);
 
-
-
-
-        //print board
+        //print sprinkler board
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (testArray[i][j] == null) {
@@ -96,7 +101,7 @@ public class Sprinkler {
 
 }
 
-
+/*   //--------------- Scoped out other sizes of sprinklers
 class SmallSprinkler extends Sprinkler {
     SmallSprinkler(int x, int y) {
         super(x, y);
@@ -105,7 +110,7 @@ class SmallSprinkler extends Sprinkler {
 
     }
 }
-/*
+
 class LargeSprinkler extends Sprinkler {
     LargeSprinkler(int x, int y) {
         super(x, y);
@@ -113,9 +118,9 @@ class LargeSprinkler extends Sprinkler {
         buildRadiusArray(x, y);
 
     }
-} */
+}
 
-/*   //----------Dont need a large sprinker, board is too small
+  //----------Dont need a large sprinker, board is too small
 class LargeSprinkler extends Sprinkler{
     LargeSprinkler(int x, int y){
         super(x,y);
