@@ -1,5 +1,3 @@
-package plant;
-
 public class Tree extends Plant {
 
   public Tree(int x, int y, String name) {
