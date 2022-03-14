@@ -1,5 +1,3 @@
-package plant;
-
 public class Bug {
 
   // each plant has 10% to be attacked
