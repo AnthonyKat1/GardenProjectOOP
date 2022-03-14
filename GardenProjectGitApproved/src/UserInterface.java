@@ -1,5 +1,3 @@
-package plant;
-
 import java.util.Arrays;
 
 public class UserInterface {
