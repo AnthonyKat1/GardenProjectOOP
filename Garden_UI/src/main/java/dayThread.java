@@ -19,7 +19,7 @@ public class dayThread extends Thread{
                 }catch(InterruptedException e){System.out.println(e);}
 
 
-                // AT THE END OF THE DAY WE NEED TO
+                //-----------------------------------AT THE END OF THE DAY WE NEED TO
                 // Increase harvest,harvest if possible
                 // See if the plant is going to die or not
                 for (int i = 0; i < 6; i++) {
@@ -32,8 +32,8 @@ public class dayThread extends Thread{
 
                             }
 
-                            //DECREASE WATER
-                            UserInterface.Plantgrid[i][j].decreaseWaterHealth();
+                            //DECREASE WATER and harvest // CAN HAVEST NEEDS TO BE CONSIDERED
+                            UserInterface.Plantgrid[i][j].oneDayPass();
 
                         }
                     }
@@ -85,6 +85,9 @@ public class dayThread extends Thread{
 
         }
     }
+
+
+
     class tempThread extends Thread {
         public void run() {
 
