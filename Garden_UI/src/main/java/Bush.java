@@ -1,4 +1,5 @@
 public class Bush extends Plant {
+    static int bushesHarvested = 0;
 
     public Bush(int x, int y, String name) {
         // 9 water, 15 heath, 15 temp health, 60-80 temp range, 10 days until
@@ -18,6 +19,7 @@ public class Bush extends Plant {
         super.setDayToHarvest(10);
         super.setLeafHealth(15);
         super.harvest();
+        bushesHarvested++;
     }
 
     public String toString() {

@@ -1,5 +1,6 @@
 public class Tree extends Plant {
 
+    static int treesHarvested = 0;
 
 
     public Tree(int x, int y, String name) {
@@ -22,6 +23,7 @@ public class Tree extends Plant {
         super.setDayToHarvest(30);
         super.setLeafHealth(15);
         super.harvest();
+        treesHarvested++;
     }
 
     public String toString() {

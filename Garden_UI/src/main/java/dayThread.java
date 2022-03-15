@@ -105,6 +105,7 @@ public class dayThread extends Thread{
 
             //-------Logging System-----//
 
+            /* Taken out of scope, using just the daily log
             //plantLog
             String[] PlantColumns = {"plantInstance", "time_stamp", "water_health", "left_health", "tempHealth", "days_to_harvest", "Comment"};
             Log.createCSVLog("plantLog.csv", PlantColumns);
@@ -116,11 +117,10 @@ public class dayThread extends Thread{
             //temperatureLog
             String[] TemperatureColumns = {"plantInstance", "time_stamp", "water_health", "left_health", "tempHealth", "days_to_harvest", "Comment"};
             Log.createCSVLog("temperatureLog.csv", TemperatureColumns);
-
+                */
 
             //dailyLog
             Log.createDailyLog("DailyLog.txt");
-
 
             dayThread dayThread = new dayThread();
             dayThread.start();

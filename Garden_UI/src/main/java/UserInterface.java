@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class UserInterface {
-
+    //Used for user interactions
     public static Plant[][] Plantgrid = new Plant[6][6];
     public static int numberOfFlower = 0;
     public static int numberOfTree = 0;
@@ -9,6 +9,7 @@ public class UserInterface {
     static int day;
     static int Second = 1000;
 
+    //Used for testing
     public static void main(String[] args) {
 
         growFlower(0, 1, "blue flower");
@@ -39,29 +40,19 @@ public class UserInterface {
 
     }
 
-
+    // Used to help when creating buttons
     public static void growFlower(int x, int y, String name) {
         Plantgrid[x][y] = new Flower(x, y, name);
         numberOfFlower++;
     }
 
-    public static void oneDayPass() {
-        for (int r = 0; r < Plantgrid.length; r++) {
-            for (int c = 0; c < Plantgrid[r].length; c++) {
-                if (Plantgrid[r][c] != null) { // this is a plant
-                   // Plantgrid[r][c].oneDayPass();
-                }
-            }
-        }
-    }
-
-
-
+    // Used to help when creating buttons
     public static void growTree(int x, int y, String name) {
         Plantgrid[x][y] = new Tree(x, y, name);
         numberOfTree++;
     }
 
+    // Used to help when creating buttons
     public static void growBush(int x, int y, String name) {
         Plantgrid[x][y] = new Bush(x, y, name);
         numberOfBush++;

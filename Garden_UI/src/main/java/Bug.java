@@ -2,8 +2,7 @@ import java.util.ArrayList;
 
 public class Bug {
 
-  // each plant has 10% to be attacked
-  // this method also handles if the plant dies or harvest
+  // each plant has 10% to be attacked by a bug
   public static void attackPlant(Plant[][] grid) {
     for (int r = 0; r < grid.length; r++) {
       for (int c = 0; c < grid[r].length; c++) {
