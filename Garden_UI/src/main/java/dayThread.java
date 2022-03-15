@@ -20,7 +20,7 @@ public class dayThread extends Thread{
 
 
                 // AT THE END OF THE DAY WE NEED TO
-                // Increase harvest,harvest if possible Decrease water by one, Check if temperature is within range
+                // Increase harvest,harvest if possible
                 // See if the plant is going to die or not
                 for (int i = 0; i < 6; i++) {
                     for (int j = 0; j < 6; j++) {
