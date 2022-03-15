@@ -9,6 +9,7 @@ public class Plant {
     private int dayToHarvest;
     private int[] tracker = new int[2];
     private String name;
+    private int current_temp;
 
     public Plant(int w, int l, int t, int minT, int maxT, int d, int x, int y,
                  String n) {
@@ -23,7 +24,10 @@ public class Plant {
         name = n;
     }
 
-    public boolean needsWater(){ if(maxWaterHealth/waterHealth > .5){return true;}else{return false;}};
+    public boolean needsWater(){
+        return ((waterHealth < 3));
+    };
+
     public int getWaterHealth() {
         return waterHealth;
     }
@@ -56,6 +60,10 @@ public class Plant {
         return tempRange[1];
     }
 
+    public int getCurrentTemp() {return current_temp;}
+
+    public void setCurrentTemp(int value) {current_temp = value;}
+
     public void setWaterHealth(int value) {
         waterHealth = value;
     }
@@ -76,17 +84,28 @@ public class Plant {
         name = value;
     }
 
-    public boolean isAlive() {
-        return leafHealth > 0 && waterHealth > 0 && tempHealth > 0;
+    //------END OF DAY CHECKS--------//
+    public void decreaseWaterHealth() {
+        --waterHealth;
+    }
+    public void decreaseTempHealth() {
+        --tempHealth;
     }
 
+    public void increaseHarvest() {
+        --dayToHarvest;
+    } // NEED TO RESET HARVEST
     public boolean canHarvest() {
         return dayToHarvest <= 0;
     }
-
-    public boolean isGoodtemperature(int temp) {
-        return tempRange[0] <= temp && temp <= tempRange[1];
+    public boolean isAlive() {
+        return leafHealth > 0 && waterHealth > 0 && tempHealth > 0;
     }
+    public boolean isGoodtemperature() {
+        return tempRange[0] <= current_temp && current_temp <= tempRange[1];
+    }
+
+
 
     public void oneDayPass() { //--------------Maybe instead of just implemplenting this at an instance level it could
         waterHealth--;        //--------------loop through all of the plants in a static form

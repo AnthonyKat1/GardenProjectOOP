@@ -4,6 +4,7 @@ public class Flower extends Plant {
         super(7, 5, 15, 70, 90, 15, x, y, name);
         this.maxWaterHealth = 7;
 
+
     }
 
     // flower get waters, and water resets at 5 again

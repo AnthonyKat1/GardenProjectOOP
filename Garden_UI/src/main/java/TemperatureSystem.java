@@ -5,7 +5,7 @@ import java.util.Random;
 public class TemperatureSystem {
 
     static TemperatureSystem[][] TempArray = new TemperatureSystem[6][6];
-    static Integer[] quadrantTemps = new Integer[4];
+    static Integer[] quadrantTemps = new Integer[5];
     static ArrayList<TemperatureSystem> ActiveSystems = new ArrayList<TemperatureSystem>();
     //------------Instance Variables---------------//
     int quadrant;
@@ -53,14 +53,14 @@ public class TemperatureSystem {
      static void generateRandomTemp() {
 
         Random rand = new Random(); //instance of random class
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             int int_random = rand.nextInt(40, 100);
             quadrantTemps[i] = int_random;
 
         }
 
          for (TemperatureSystem TS: ActiveSystems) {
-             System.out.println(TS.quadrant + " New temp is "+ quadrantTemps[TS.quadrant]);
+           //  System.out.println(TS.quadrant + " New temp is "+ quadrantTemps[TS.quadrant]);
              TS.setPlantTemps();
          }
 
@@ -133,24 +133,23 @@ public class TemperatureSystem {
     public void setPlantTemps() {
         current_temp = quadrantTemps[quadrant];
         for (Plant P: plants_in_prox) {
-            P.setTempHealth(current_temp);
+            P.setCurrentTemp(current_temp);
         }
     }
 
     //MIGHT BE ABLE TO COMBINE THESE TWO, WILL NEED TO ITERATE OVER THE PLANTS TO CHANGE TEMP WITH SOME SORT OF TIME DELAY
     public void changeTemp() {
-
-        if (current_temp>quadOptimalTemp){
+        if(current_temp==0){
+        } else if (current_temp>quadOptimalTemp){
             current_temp -=1;
-            System.out.println(quadrant+" Lowering Temp to "+current_temp);
-        }
-        else if (current_temp<quadOptimalTemp) {
+            //System.out.println(quadrant+" Lowering Temp to "+current_temp);
+        } else if (current_temp<quadOptimalTemp) {
             current_temp += 1;
-            System.out.println(quadrant + "Raising Temp to " + current_temp);
+           // System.out.println(quadrant + " Raising Temp to " + current_temp);
         }
 
             for (Plant P: plants_in_prox) {
-                P.setTempHealth(current_temp);
+                P.setCurrentTemp(current_temp);
             }
 
     }
