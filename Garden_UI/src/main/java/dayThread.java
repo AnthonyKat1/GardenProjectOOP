@@ -53,9 +53,10 @@ public class dayThread extends Thread{
             UserInterface.growFlower(0, 1, "blue flower");
             UserInterface.growTree(0, 2, "blue tree");
            // UserInterface.growBush(5, 1, "green bush");
-            //UserInterface.growBush(5, 5, "green bush");
-            //------SPRINKLERS-----//
+            // UserInterface.growBush(5, 5, "green bush");
 
+
+            //------SPRINKLERS-----//
             Sprinkler Sprinkler1 = new Sprinkler(1,2);
             SprinklerThread Sprink1 = new SprinklerThread();
             Sprink1.start();
