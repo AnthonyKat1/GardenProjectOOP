@@ -4,15 +4,17 @@ import java.util.stream.Collectors;
 
 public class Log {
 
-    static int current_time_stamp;
-    static Dictionary<String, Log> log_list;
+    static Dictionary<String, Log> log_list; // List of all of the logs
 
-    //------------------------https://www.baeldung.com/java-csv------------------------//
+    // Used to convert text to csv format
     public static String convertToCSV(String[] data) {
+        //------------------------https://www.baeldung.com/java-csv------------------------//
+
         return Arrays.stream(data).collect(Collectors.joining(","));
     }
 
-    public static void addToLog(String log_name, String[] row_of_data) {
+    // used to add a row of data into a csv log
+    public static void addToCSVLog(String log_name, String[] row_of_data) {
         try (FileWriter fw = new FileWriter(log_name, true)) {
             //pw.println(convertToCSV(columns));
             fw.append(convertToCSV(row_of_data));
@@ -25,7 +27,8 @@ public class Log {
         }
     }
 
-    public static void createLog(String log_name, String[] columns) {
+    // creating a csv using the name and columns as input
+    public static void createCSVLog(String log_name, String[] columns) {
         File csvOutputFile = new File(log_name);
         try (FileWriter pw = new FileWriter(csvOutputFile)) {
             //pw.println(convertToCSV(columns));
@@ -38,50 +41,47 @@ public class Log {
         }
     }
 
-    public static ArrayList<String[]> checkLog(String log_name, int column_to_check) {
-
-        ArrayList<String[]> DataRows = new ArrayList<>();
-
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(log_name));
-            // Declaring a string variable
-            String st;
-            // Condition holds true till
-            // there is character in a string
-            while ((st = br.readLine()) != null) {
-                // Print the string
-                // System.out.println(st);
-                if (st.contains("column_values->")) {
-                    continue;
-                }
-                try {
-                    String[] row = st.split(",");
-                    int columnValue = Integer.parseInt(row[column_to_check - 1].toString());
-                    if (1 == columnValue) {
-                        DataRows.add(row);
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-
-            }
+    // adding values to a daily log
+    public static void addToDailyLog(String row_of_data) {
+        try (FileWriter fw = new FileWriter("DailyLog.txt", true)) {
+            //pw.println(convertToCSV(columns));
+            fw.append(row_of_data);
+            fw.append("\n");
+            fw.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return DataRows;
-
     }
 
+    // creating the daily log
+    public static void createDailyLog(String log_name) {
+        File csvOutputFile = new File(log_name);
+        try (FileWriter pw = new FileWriter(csvOutputFile)) {
+            //pw.println(convertToCSV(columns));
+
+            pw.append("//------------Daily Log---------//");
+            pw.append("\n");
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // Testing stuff
+/* testing stuff
     public static void main(String[] args) {
 
         String[] PlantColumns = {"plantInstance", "time_stamp", "water_health", "left_health", "tempHealth", "days_to_harvest", "Comment"};
-        createLog("plantLog.csv", PlantColumns);
+        createCSVLog("plantLog.csv", PlantColumns);
+        createDailyLog("DailyLog.txt");
+        addToDailyLog("--------Day 1--------");
+        addToDailyLog("Wow it was such a great day");
 
-    /* Example on how to use
+
+     Example on how to use
         createLog("plantLog.csv",columns);
         String[] row =  {"1", "6", "0","01"};
         String[] row2 =  {"1", "5", "0","02"};
@@ -96,8 +96,9 @@ public class Log {
         addToLog("plantLog.csv",row4);
         addToLog("plantLog.csv",row5);
         addToLog("plantLog.csv",row6);
+        }
      */
 
 
-    }
+
 }

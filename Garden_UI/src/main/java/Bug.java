@@ -21,7 +21,7 @@ public class Bug {
           if (!plant.isAlive()) {
             grid[r][c] = null;
           }
-
+/*
           // handle harvest
           if (plant.canHarvest()) {
             if (plant.getType().contains("Bush")) {
@@ -34,7 +34,7 @@ public class Bug {
               Tree t = (Tree) plant;
               t.harvest();
             }
-          }
+          } */
 
         }
       }

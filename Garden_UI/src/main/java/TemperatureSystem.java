@@ -4,29 +4,49 @@ import java.util.Random;
 
 public class TemperatureSystem {
 
-    static TemperatureSystem[][] TempArray = new TemperatureSystem[6][6];
-    static Integer[] quadrantTemps = new Integer[5];
-    static ArrayList<TemperatureSystem> ActiveSystems = new ArrayList<TemperatureSystem>();
+    //------------Static Variables---------------//
+    static TemperatureSystem[][] TempArray = new TemperatureSystem[6][6]; //Used for testing
+    static Integer[] quadrantTemps = new Integer[5]; // Used for generating an setting random temperatures for each quadrant each day
+    static ArrayList<TemperatureSystem> ActiveSystems = new ArrayList<TemperatureSystem>(); // Holding the active temperature systems,
+                                                                                // needs a plant to be active
     //------------Instance Variables---------------//
-    int quadrant;
-    Integer[] position = new Integer[2]; // x,y
-    ArrayList<Plant> plants_in_prox = new ArrayList<Plant>();
-    int quadOptimalTemp;
-    int current_temp;
+    private int quadrant; // Which quad is the plant in? 1,2,3,4
+    private Integer[] position = new Integer[2]; // x,y
+    private ArrayList<Plant> plants_in_prox = new ArrayList<Plant>();  // what plants are within the quadrant and will be affected?
+    private int quadOptimalTemp; // Based on the plants within the system what temp should the quad optimize for
+    private int current_temp; // what is the current temp of the quad
 
+    // Initialize the temp system by putting it on the grid and findings plants in its range based on its quadrant
+                                                                    // and where there are plants in side of it
     TemperatureSystem(int quadrant) {
         this.quadrant = quadrant;
         this.setSystemOnGrid();
         this.findPlantsInQuadrant(UserInterface.Plantgrid);
         if (!this.plants_in_prox.isEmpty()){
         this.calculateOptimalTemperature();
-
         ActiveSystems.add(this);
         }
 
     }
 
+    //------------GETTERS--------------//
+    public ArrayList<Plant> getPlantsInProx(){
+        return plants_in_prox;
+    }
 
+    public int getQuadOptimalTemp(){return quadOptimalTemp;}
+
+    public int getCurrent_temp() {
+        return current_temp;
+    }
+
+    public Integer[] getPosition(){
+        return position;
+    }
+
+    //-----------INTERNAL FUNCTIONS-----------//
+
+    // Putting the temp system on the corners of the grid based on which quad it is in
     private void setSystemOnGrid() {
         switch (quadrant) {
             case 1:
@@ -49,12 +69,12 @@ public class TemperatureSystem {
         TempArray[this.position[0]][this.position[1]] = this;
     }
 
-    //@@Get random temp, NEED TO GET A DAY FUNTION TO TRIGGER IT
+    //Generates a unique temperature for each quadrant to react to
      static void generateRandomTemp() {
 
         Random rand = new Random(); //instance of random class
         for (int i = 0; i < 5; i++) {
-            int int_random = rand.nextInt(40, 100);
+            int int_random = rand.nextInt(45, 95);
             quadrantTemps[i] = int_random;
 
         }
@@ -66,7 +86,7 @@ public class TemperatureSystem {
 
     }
 
-    //@@USING PLANTS IN QUADRANT TO CALCULATE OPTIMAL TEMP
+    //Using the plants within the quadrant, this function finds the optimal temperature to optimize for
     private void calculateOptimalTemperature() {
         int count = 0;
         int total = 0;
@@ -79,7 +99,7 @@ public class TemperatureSystem {
 
     }
 
-    //@@FINDS PLANTS AND ADDS THEM TO ARRAY
+    //Finds the plants that will be affected by the instance of the temperature system(each quadrant)
     private void findPlantsInQuadrant(Plant[][] Plantgrid) {
 
        /* for (int i = 0; i < Plantgrid.length; i++) {
@@ -113,7 +133,7 @@ public class TemperatureSystem {
 
     }
 
-    //@@PRINTS TEMP ARRAY, FOR TESTING
+    //Prints the temperature array, used for testing
     private static void printTempArray() {
         //print board
         for (int i = 0; i < 6; i++) {
@@ -129,7 +149,8 @@ public class TemperatureSystem {
 
     }
 
-    // AFTER OBTAINS PLANT ARRAY, ITERATES OVER THEM TO SET INITAL TEMP FOR EACH
+    // Using the current temperature within the array, it sets the plants temperatures,
+                                          //used right after generating a random temp
     public void setPlantTemps() {
         current_temp = quadrantTemps[quadrant];
         for (Plant P: plants_in_prox) {
@@ -137,7 +158,7 @@ public class TemperatureSystem {
         }
     }
 
-    //MIGHT BE ABLE TO COMBINE THESE TWO, WILL NEED TO ITERATE OVER THE PLANTS TO CHANGE TEMP WITH SOME SORT OF TIME DELAY
+    //Adjusts the temperature based on what the optimal temperature of the quad is
     public void changeTemp() {
         if(current_temp==0){
         } else if (current_temp>quadOptimalTemp){
@@ -151,21 +172,6 @@ public class TemperatureSystem {
             for (Plant P: plants_in_prox) {
                 P.setCurrentTemp(current_temp);
             }
-
-    }
-
-
-
-
-
-    public static void main(String[] args) {
-
-        TemperatureSystem Quad1 = new TemperatureSystem(1);
-        TemperatureSystem Quad2 = new TemperatureSystem(2);
-        TemperatureSystem Quad3 = new TemperatureSystem(3);
-        TemperatureSystem Quad4 = new TemperatureSystem(4);
-        printTempArray();
-
 
     }
 

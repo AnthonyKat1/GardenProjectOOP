@@ -2,14 +2,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sprinkler {
-    static Integer[][] testArray = new Integer[10][10];
 
-    ArrayList<Plant> plants_in_promixity = new ArrayList<Plant>();
-    int radius;
-    Integer[] position_array = new Integer[2]; // [x, y] [4,6] // ------------NEED TO ADD POSITION
-    ArrayList<Integer[]> radius_array = new ArrayList<>(); // [[x,y] [x,y]]
-    static ArrayList<Sprinkler> sprinkler_array = new ArrayList<>();
+    //----------Static Variables-------//
+    static ArrayList<Sprinkler> sprinkler_array = new ArrayList<>(); // Holds all of the initalized sprinklers
 
+    //----------Instance Variables--------//
+    private ArrayList<Plant> plants_in_promixity = new ArrayList<Plant>(); // All the plants that the sprinkler affects
+    private int radius;
+    private Integer[] position_array = new Integer[2]; // [x, y] [4,6] // ------------NEED TO ADD POSITION
+    ArrayList<Integer[]> radius_array = new ArrayList<>(); // [[x,y] [x,y]] // List of all the coordinates for the array
+
+    //Construct the sprinkler with a position and the plants that it affects
     Sprinkler(int x, int y) {
         position_array[0] = x;
         position_array[1] = y;
@@ -19,15 +22,17 @@ public class Sprinkler {
         sprinkler_array.add(this);
     }
 
+    //Check if the plant needs water, and if it does, water it
     public void checkToWaterPlants() {
-        for (Plant P: plants_in_promixity) {
-           if (P.needsWater()){
-               P.water();
+        for (Plant P : plants_in_promixity) {
+            if (P.needsWater()) {
+                P.water();
 
-           }
+            }
         }
     }
 
+    //used to build the sprinklers affective radius
     public void buildRadiusArray(int locX, int locY) {
         //https://stackoverflow.com/questions/8275795/algorithm-for-operating-on-2d-array-with-radius/8275819
 
@@ -49,6 +54,8 @@ public class Sprinkler {
 
     }
 
+    // This was a function made to test if the radius was being built properly
+    /*
     public void addSprinklerRadiusToArray() {
         for (Integer[] integers : this.radius_array) {
             int x = integers[0];
@@ -56,46 +63,15 @@ public class Sprinkler {
             testArray[x][y] = 2;
         }
     }
+    */
 
+    // Checking and adding to the proximity array what plants are within the boundaries of the sprinklers radius
     public void checkForPlantsInProximity(Plant[][] Plantgrid) {
-            // Iterate over plant array
-        for (Integer[] C: radius_array) {
+        // Iterate over plant array
+        for (Integer[] C : radius_array) {
             if (Plantgrid[C[0]][C[1]] != null) {
                 plants_in_promixity.add(Plantgrid[C[0]][C[1]]);
             }
-        }
-    }
-
-
-
-    public static void main(String[] args) {
-
-        ///----------TESTING ---------///
-
-
-        UserInterface.growFlower(0, 1, "blue flower");
-        UserInterface.growFlower(2, 3, "red flower");   // CAN PLANT THINGS ON TOP OF EACH OTHER, NEED TO BE CAREFUL
-        UserInterface.growFlower(1, 2, "white flower");
-        for (int i = 0; i < UserInterface.Plantgrid.length; i++) {
-            System.out.println(Arrays.toString(UserInterface.Plantgrid[i]));
-        }
-
-        System.out.println("Small test");
-        Sprinkler smallTest = new Sprinkler(1, 1);
-        smallTest.addSprinklerRadiusToArray();
-        System.out.println(smallTest.position_array[0] + " " + smallTest.position_array[1]);
-        smallTest.checkForPlantsInProximity(UserInterface.Plantgrid);
-
-        //print sprinkler board
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                if (testArray[i][j] == null) {
-                    System.out.print("= ");
-                } else {
-                    System.out.print(testArray[i][j] + " ");
-                }
-            }
-            System.out.println();
         }
     }
 
