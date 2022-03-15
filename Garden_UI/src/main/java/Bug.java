@@ -14,6 +14,7 @@ public class Bug {
           // Math.random() gives number from 0 - 1
           if (Math.random() < 0.1) { // 10% to be attacked
             plant.attack();
+            // ADD A LOG
           }
 
           // check if the plant dies -> remove it

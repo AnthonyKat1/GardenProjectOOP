@@ -32,7 +32,7 @@ public class dayThread extends Thread{
 
                             }
 
-                            //DECREASE WATER and harvest // CAN HAVEST NEEDS TO BE CONSIDERED
+             //NEED TO DECRESE WATER AND HARVEST, NEED A CHECK FOR IF SOMETHING IS HARVESTABLE, IF IT IS, NEED TO RESET THE NUMBER
                             UserInterface.Plantgrid[i][j].oneDayPass();
 
                         }

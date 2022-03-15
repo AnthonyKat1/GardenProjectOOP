@@ -23,6 +23,7 @@ public class Sprinkler {
         for (Plant P: plants_in_promixity) {
            if (P.needsWater()){
                P.water();
+
            }
         }
     }
