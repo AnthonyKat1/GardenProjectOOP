@@ -49,7 +49,7 @@ public class UserInterface {
         for (int r = 0; r < Plantgrid.length; r++) {
             for (int c = 0; c < Plantgrid[r].length; c++) {
                 if (Plantgrid[r][c] != null) { // this is a plant
-                    Plantgrid[r][c].oneDayPass();
+                   // Plantgrid[r][c].oneDayPass();
                 }
             }
         }

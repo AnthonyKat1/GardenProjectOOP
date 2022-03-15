@@ -25,7 +25,7 @@ public class Sprinkler {
     //Check if the plant needs water, and if it does, water it
     public void checkToWaterPlants() {
         for (Plant P : plants_in_promixity) {
-            if (P.needsWater()) {
+            if (P.needsWater() && P.isAlive()) {
                 P.water();
 
             }

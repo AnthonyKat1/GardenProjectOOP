@@ -74,7 +74,7 @@ public class TemperatureSystem {
 
         Random rand = new Random(); //instance of random class
         for (int i = 0; i < 5; i++) {
-            int int_random = rand.nextInt(45, 95);
+            int int_random = rand.nextInt(45, 100);
             quadrantTemps[i] = int_random;
 
         }
@@ -162,10 +162,10 @@ public class TemperatureSystem {
     public void changeTemp() {
         if(current_temp==0){
         } else if (current_temp>quadOptimalTemp){
-            current_temp -=1;
+            current_temp -=2;
             //System.out.println(quadrant+" Lowering Temp to "+current_temp);
         } else if (current_temp<quadOptimalTemp) {
-            current_temp += 1;
+            current_temp += 2;
            // System.out.println(quadrant + " Raising Temp to " + current_temp);
         }
 

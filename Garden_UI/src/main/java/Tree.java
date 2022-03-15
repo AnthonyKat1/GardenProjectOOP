@@ -3,17 +3,25 @@ public class Tree extends Plant {
 
 
     public Tree(int x, int y, String name) {
-        // 10 water, 15 heath, 15 temp health, 50-100 range temp, 30 days until
+        // 13 water, 15 heath, 15 temp health, 50-100 range temp, 30 days until
         // harvest
 
-        super(10, 15, 15, 50, 100, 30, x, y, name);
+        super(13, 15, 15, 55, 90, 30, x, y, name);
         this.maxWaterHealth = 10;
 
     }
 
-    // flower get waters, and water resets at 8 again
+    // flower get waters, and water resets at 13 again
     public void water() {
-        super.setWaterHealth(10);
+        super.setWaterHealth(13);
+        super.water();
+    }
+
+    // harvest to the tree and reset harvest day
+    public void harvest() {
+        super.setDayToHarvest(30);
+        super.setLeafHealth(15);
+        super.harvest();
     }
 
     public String toString() {

@@ -1,15 +1,14 @@
 public class Plant {
-    // 3 childrent: Flower, Tree, and Bush
-    // Grid: 2D Array of Plant
-    int maxWaterHealth;
+
+    int maxWaterHealth; // Helpful for calculating the percentages of water health
     private int waterHealth;
     private int leafHealth;
     private int tempHealth;
-    private int[] tempRange = new int[2];
-    private int dayToHarvest;
-    private int[] tracker = new int[2];
-    private String name;
-    private int current_temp;
+    private int[] tempRange = new int[2]; // High and low for temperature range that the plant can live in
+    private int dayToHarvest; // days left in harvest, will count down
+    private int[] tracker = new int[2]; // position on graph
+    private String name; // name of plant, fun for tracking
+    private int current_temp; // current temperature that will be given by temp system
 
     public Plant(int w, int l, int t, int minT, int maxT, int d, int x, int y,
                  String n) {
@@ -24,10 +23,12 @@ public class Plant {
         name = n;
     }
 
+    //check if the plant needs water
     public boolean needsWater(){
         return ((waterHealth < 3));
     };
 
+    //------GETTERS-----//
     public int getWaterHealth() {
         return waterHealth;
     }
@@ -62,6 +63,7 @@ public class Plant {
 
     public int getCurrentTemp() {return current_temp;}
 
+    //------SETTERS-----//
     public void setCurrentTemp(int value) {current_temp = value;}
 
     public void setWaterHealth(int value) {
@@ -84,47 +86,39 @@ public class Plant {
         name = value;
     }
 
-    //------END OF DAY CHECKS--------//
+
+    //------END OF DAY FUNCTIONS--------//
     public void decreaseWaterHealth() {
         --waterHealth;
     }
     public void decreaseTempHealth() {
         --tempHealth;
     }
-
-    public void increaseHarvest() {
+    public void increaseTempHealth(){++tempHealth;}
+    public boolean isGoodtemperature() {
+        return tempRange[0] <= current_temp && current_temp <= tempRange[1];
+    }
+    public void harvest(){
+        Log.addToDailyLog(" -"+this.getName()+ " is getting harvested");
+    }
+    public void decreaseHarvest() {
         --dayToHarvest;
-    } // NEED TO RESET HARVEST
+    }
     public boolean canHarvest() {
         return dayToHarvest <= 0;
     }
     public boolean isAlive() {
         return leafHealth > 0 && waterHealth > 0 && tempHealth > 0;
     }
-    public boolean isGoodtemperature() {
-        return tempRange[0] <= current_temp && current_temp <= tempRange[1];
-    }
 
-
-
-    public void oneDayPass() { //--------------Maybe instead of just implemplenting this at an instance level it could
-        waterHealth--;        //--------------loop through all of the plants in a static form
-        dayToHarvest--;
-    }
-
+    //Interacrtions with other systems
     public void attack() {
         leafHealth--;
     }
-
-    public void tooHot() {
-        tempHealth--;
+    public void water(){
+        Log.addToDailyLog(" -"+this.getName()+
+                " is getting watered ");
     }
-
-    public void tooCold() {
-        tempHealth--;
-    }
-
-    public void water(){}
 
     public String toString() {
         return name + ", waterHealth: " + waterHealth + ", leafHealth: "

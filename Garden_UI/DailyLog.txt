@@ -1,0 +1,141 @@
+                   //------------Daily Log---------//
+ 
+ 
+                   --- DAY 1 ---
+ -Green Bush was out of its temperature range Temp: 56
+                   --- DAY 1 IS OVER ---
+
+                   --- DAY 2 ---
+ -Green Bush was out of its temperature range Temp: 48
+                   --- DAY 2 IS OVER ---
+
+                   --- DAY 3 ---
+                   --- DAY 3 IS OVER ---
+
+                   --- DAY 4 ---
+ -Blue Tree was attacked by a bug
+ -Blue Flower was out of its temperature range Temp: 54
+ -Blue Tree was out of its temperature range Temp: 54
+                   --- DAY 4 IS OVER ---
+
+                   --- DAY 5 ---
+ -Blue Flower was out of its temperature range Temp: 47
+ -Blue Tree was out of its temperature range Temp: 47
+ -Green Bush was out of its temperature range Temp: 97
+                   --- DAY 5 IS OVER ---
+
+                   --- DAY 6 ---
+ -Blue Flower is getting watered 
+ -Blue Flower was out of its temperature range Temp: 54
+ -Blue Tree was out of its temperature range Temp: 54
+                   --- DAY 6 IS OVER ---
+
+                   --- DAY 7 ---
+ -Blue Flower was out of its temperature range Temp: 97
+ -Blue Tree was out of its temperature range Temp: 97
+ -Green Bush was out of its temperature range Temp: 88
+                   --- DAY 7 IS OVER ---
+
+                   --- DAY 8 ---
+ -Green Bush is getting watered 
+ -Blue Flower was out of its temperature range Temp: 93
+ -Blue Tree was out of its temperature range Temp: 93
+ -Green Bush was out of its temperature range Temp: 87
+                   --- DAY 8 IS OVER ---
+
+                   --- DAY 9 ---
+ -Green Bush was attacked by a bug
+ -Blue Flower was out of its temperature range Temp: 54
+ -Blue Tree was out of its temperature range Temp: 54
+                   --- DAY 9 IS OVER ---
+
+                   --- DAY 10 ---
+                   --- DAY 10 IS OVER ---
+
+                   --- DAY 11 ---
+ -Blue Flower is getting watered 
+ -Green Bush was out of its temperature range Temp: 83
+ -Blue Tree is getting watered 
+ -Green Bush is getting harvested
+                   --- DAY 11 IS OVER ---
+
+                   --- DAY 12 ---
+ -Blue Flower was out of its temperature range Temp: 49
+ -Blue Tree was out of its temperature range Temp: 49
+ -Green Bush was out of its temperature range Temp: 95
+                   --- DAY 12 IS OVER ---
+
+                   --- DAY 13 ---
+                   --- DAY 13 IS OVER ---
+
+                   --- DAY 14 ---
+ -Blue Flower was out of its temperature range Temp: 48
+ -Blue Tree was out of its temperature range Temp: 48
+                   --- DAY 14 IS OVER ---
+
+                   --- DAY 15 ---
+ -Green Bush is getting watered 
+ -Blue Flower was out of its temperature range Temp: 50
+ -Blue Flower is getting watered 
+ -Blue Tree was out of its temperature range Temp: 50
+ -Green Bush was out of its temperature range Temp: 56
+                   --- DAY 15 IS OVER ---
+
+                   --- DAY 16 ---
+ -Blue Flower is getting harvested
+ -Green Bush was out of its temperature range Temp: 95
+                   --- DAY 16 IS OVER ---
+
+                   --- DAY 17 ---
+                   --- DAY 17 IS OVER ---
+
+                   --- DAY 18 ---
+                   --- DAY 18 IS OVER ---
+
+                   --- DAY 19 ---
+                   --- DAY 19 IS OVER ---
+
+                   --- DAY 20 ---
+ -Green Bush was attacked by a bug
+                   --- DAY 20 IS OVER ---
+
+                   --- DAY 21 ---
+ -Green Bush was out of its temperature range Temp: 86
+                   --- DAY 21 IS OVER ---
+
+                   --- DAY 22 ---
+ ---Blue Flower is dead :(
+ -Green Bush was out of its temperature range Temp: 93
+ -Green Bush is getting harvested
+                   --- DAY 22 IS OVER ---
+
+                   --- DAY 23 ---
+ -Blue Tree was out of its temperature range Temp: 93
+ ---Green Bush is dead :(
+                   --- DAY 23 IS OVER ---
+
+                   --- DAY 24 ---
+ -Blue Tree is getting watered 
+                   --- DAY 24 IS OVER ---
+
+                   --- DAY 25 ---
+ -Blue Tree was attacked by a bug
+                   --- DAY 25 IS OVER ---
+
+                   --- DAY 26 ---
+                   --- DAY 26 IS OVER ---
+
+                   --- DAY 27 ---
+ -Blue Tree was out of its temperature range Temp: 53
+                   --- DAY 27 IS OVER ---
+
+                   --- DAY 28 ---
+                   --- DAY 28 IS OVER ---
+
+                   --- DAY 29 ---
+                   --- DAY 29 IS OVER ---
+
+                   --- DAY 30 ---
+ -Blue Tree was out of its temperature range Temp: 94
+                   --- DAY 30 IS OVER ---
+

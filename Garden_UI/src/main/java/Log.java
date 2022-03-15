@@ -61,8 +61,8 @@ public class Log {
         try (FileWriter pw = new FileWriter(csvOutputFile)) {
             //pw.println(convertToCSV(columns));
 
-            pw.append("//------------Daily Log---------//");
-            pw.append("\n");
+            pw.append("                   //------------Daily Log---------//");
+            pw.append("\n \n \n");
             pw.close();
         } catch (IOException e) {
             e.printStackTrace();
