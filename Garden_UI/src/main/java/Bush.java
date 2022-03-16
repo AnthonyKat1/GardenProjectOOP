@@ -18,6 +18,7 @@ public class Bush extends Plant {
     public void harvest() {
         super.setDayToHarvest(10);
         super.setLeafHealth(15);
+        super.setTempHealth(15);
         super.harvest();
         bushesHarvested++;
     }

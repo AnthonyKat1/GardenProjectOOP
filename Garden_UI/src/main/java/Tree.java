@@ -22,6 +22,7 @@ public class Tree extends Plant {
     public void harvest() {
         super.setDayToHarvest(30);
         super.setLeafHealth(15);
+        super.setTempHealth(15);
         super.harvest();
         treesHarvested++;
     }

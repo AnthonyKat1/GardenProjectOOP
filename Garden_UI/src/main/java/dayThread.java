@@ -39,8 +39,6 @@ public class dayThread extends Thread{
                                 Log.addToDailyLog(" -"+UserInterface.Plantgrid[i][j].getName()+
                                         " was out of its temperature range " +
                                         "Temp: "+UserInterface.Plantgrid[i][j].getCurrentTemp());
-                            } else {
-                                UserInterface.Plantgrid[i][j].increaseTempHealth();
                             }
 
              //NEED TO DECRESE WATER AND HARVEST, NEED A CHECK FOR IF SOMETHING IS HARVESTABLE, IF IT IS, NEED TO RESET THE NUMBER

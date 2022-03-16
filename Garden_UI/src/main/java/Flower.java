@@ -18,6 +18,7 @@ public class Flower extends Plant {
     public void harvest() {
         super.setDayToHarvest(15);
         super.setLeafHealth(5);
+        super.setTempHealth(15);
         super.harvest();
         flowersHarvested++;
     }
