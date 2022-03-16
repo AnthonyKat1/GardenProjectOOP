@@ -11,7 +11,7 @@ public class Bug {
         Plant plant = grid[r][c];
         if (plant != null) {
           // Math.random() gives number from 0 - 1
-          if (Math.random() < 0.1) { // 10% to be attacked
+          if (Math.random() < 0.3) { // 10% to be attacked
             plant.attack();
             Log.addToDailyLog(" -"+plant.getName()+" was attacked by a bug");
           }
