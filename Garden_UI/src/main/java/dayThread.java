@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class dayThread extends Thread{
         static int thread_day = 0; // Used to know what day it is
         static int length_of_simulation = 30; // used to set the length of the simulation
-        static int day_in_seconds = 1/2; // used to simplify how long days are
+        static int day_in_seconds = 5; // used to simplify how long days are
         static int day = 1000*day_in_seconds; // used to simplified the caluclation of the wait for a day
 
     public void run() {
